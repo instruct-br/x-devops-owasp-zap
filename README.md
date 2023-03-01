@@ -49,7 +49,19 @@ O ZAP pode ser usado como um aplicativo autônomo e como um processo de segundo 
 
 ### Automation Framework
 
-...
+O **Automation Framework** permite que você controle o ZAP por meio de um arquivo YAML e oferece mais flexibilidade sem estar vinculado a nenhuma tecnologia de contêiner específica. Com o tempo, o Automation Framework se tornará o padrão de execução do ZAP. Ele está incluído na versão mais recente do ZAP, bem como na imagem estável do docker.
+
+#### Contexto
+
+Um **contexto** é um recurso que permite que o testador defina as informações do ambiente em que a aplicação web está sendo executada durante uma sessão de testes de segurança. Isso inclui as URLs, cookies, cabeçalhos e outros parâmetros da sessão que podem ser usados para criar cenários de teste específicos.
+
+#### Job
+
+Um **job** é um recurso que permitem o testador automatizar tarefas de teste de segurança. Com um job, o testador pode definir um conjunto de ações a serem executadas de forma sequencial, como enviar solicitações HTTP para uma aplicação web, identificar vulnerabilidades, gerar relatórios, entre outros.
+
+##### Spider
+
+Um **spider** é um recurso que permite a ferramenta mapear automaticamente a aplicação web, identificando todas as páginas acessíveis a partir de uma página inicial e coletando informações sobre elas.
 
 ## Prós e contras
 
