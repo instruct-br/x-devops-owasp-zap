@@ -1,7 +1,12 @@
 stages:
-  -
+  - build
   - scan
   - deploy
+
+build-job:
+  stage: build
+  script:
+    - echo "Essa é a etapa de build"
 
 scan-job:
   stage: scan
