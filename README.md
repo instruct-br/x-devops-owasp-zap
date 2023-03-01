@@ -20,11 +20,11 @@ A ferramenta possui uma interface gráfica de usuário (GUI) que permite o usuá
 
 ### Propósito
 
-Classificae e mostrar as possíveis vulnerabilidades do sistema que está sendo implementado e testado. Aponta para as equipes de desenvolvimento e teste onde é necessário corrigir e reforçar a segurança.
+Classificar e mostrar as possíveis vulnerabilidades do sistema que está sendo implementado e testado. Aponta para as equipes de desenvolvimento o teste e onde é necessário corrigir e reforçar a segurança.
 
 ## Básico sobre testes de segurança
 
-Teste de segurança é o processo de avaliar e testar um sistema para descobrir riscos de segurança e vulnerabilidades desse sistema. O testes de segurança pode ser categorizado em quatro tipos, que são:
+Teste de segurança é o processo de avaliar e testar um sistema para descobrir riscos de segurança e vulnerabilidades desse sistema. O testes de segurança podem ser categorizados em quatro tipos, que são:
 
 - Vulnerability Assessment
 - Penetration Testing
@@ -33,7 +33,7 @@ Teste de segurança é o processo de avaliar e testar um sistema para descobrir 
 
 ### Teste de penetração
 
-O **teste de penetração** (_pentesting_) é realizado como se o testador fosse um invasor externo malicioso com o objetivo de invadir o sistema. Teste de penetração pode ser dividido em três estágio, que são:
+O **teste de penetração** (_pentesting_) é realizado como se o testador fosse um invasor externo malicioso com o objetivo de invadir o sistema. Ele pode ser dividido em três estágio, que são:
 
 1. Explore
 1. Attack
