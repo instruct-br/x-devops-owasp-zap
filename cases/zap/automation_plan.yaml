@@ -1,0 +1,127 @@
+---
+env:
+  contexts:
+    - name: "Default Context"
+      urls: ["https://brokencrystals.com"]
+      includePaths: []
+      excludePaths: []
+      authentication:
+        method: "form"
+        parameters:
+          loginPageUrl: "https://brokencrystals.com/userlogin"
+          loginRequestUrl: "https://brokencrystals.com/api/auth/login"
+          loginRequestBody: "user=[%username%]&password=[%password%]&op=html"
+        verification:
+          method: "response"
+          pollFrequency: 60
+          pollUnits: "requests"
+          pollUrl: ""
+          pollPostData: ""
+      sessionManagement:
+        method: "cookie"
+        parameters: {}
+      users:
+        - name: "admin"
+          credentials:
+            password: "PASSWORD"
+            username: "USERNAME"
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+  vars: {}
+jobs:
+  - parameters:
+      context: "Default Context"
+      user: "admin"
+      url: "https://brokencrystals.com"
+      maxDuration: 0
+      maxDepth: 0
+      maxChildren: 0
+      acceptCookies: true
+      handleODataParametersVisited: true
+      handleParameters: "USE_ALL"
+      maxParseSizeBytes: 1255032704
+      parseComments: false
+      parseGit: false
+      parseRobotsTxt: false
+      parseSitemapXml: false
+      parseSVNEntries: false
+      postForm: true
+      processForm: true
+      requestWaitTime: 0
+      sendRefererHeader: true
+      userAgent: ""
+    tests:
+      - onFail: "INFO"
+        statistic: "automation.spider.urls.added"
+        site: ""
+        operator: ">="
+        value: 100
+        type: "stats"
+        name: "At least 100 URLs found"
+    name: "spider"
+    type: "spider"
+  - parameters:
+      context: "Default Context"
+      user: "admin"
+      url: "https://brokencrystals.com"
+      maxDuration: 60
+      maxCrawlDepth: 10
+      numberOfBrowsers: 1
+      maxCrawlStates: 0
+      eventWait: 0
+      reloadWait: 0
+      clickDefaultElems: true
+      clickElemsOnce: true
+      randomInputs: true
+      runOnlyIfModern: false
+    name: "spiderAjax"
+    type: "spiderAjax"
+  - parameters:
+      template: "traditional-html"
+      reportDir: "CI_PROJECT_DIR"
+      reportFile: "ZAP_REPORT"
+      reportTitle: "ZAP Baseline Scan Report"
+      reportDescription: ""
+      displayReport: false
+    risks:
+      - "info"
+      - "low"
+      - "medium"
+      - "high"
+    confidences:
+      - "falsepositive"
+      - "low"
+      - "medium"
+      - "high"
+      - "confirmed"
+    sections:
+      - "instancecount"
+      - "alertdetails"
+      - "alertcount"
+    name: "report"
+    type: "report"
+  - parameters:
+      template: "traditional-md"
+      reportDir: "CI_PROJECT_DIR"
+      reportFile: "ZAP_ALERT_REPORT"
+      reportTitle: "ZAP Scanning Report"
+      reportDescription:
+        "This is report that should contain only alerts that should\
+        \ fail the pipeline and be revisited by a team member"
+      displayReport: false
+    risks:
+      - "low"
+      - "medium"
+      - "high"
+    confidences:
+      - "low"
+      - "medium"
+      - "high"
+      - "confirmed"
+    sections:
+      - "alertdetails"
+      - "alertcount"
+    name: "alert-report"
+    type: "report"

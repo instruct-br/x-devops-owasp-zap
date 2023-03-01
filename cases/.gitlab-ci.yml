@@ -1,0 +1,31 @@
+stages:
+  -
+  - scan
+  - deploy
+
+scan-job:
+  stage: scan
+  image:
+    name: owasp/zap2docker-stable:latest
+    entrypoint: [""]
+  variables:
+    ZAP_ALERT_REPORT: alert-report
+    ZAP_REPORT: baselinescan
+    USERNAME: admin@admin.com
+    PASSWORD: admin
+  script:
+    - bash zap_scan.sh
+  only:
+    refs:
+      - branches
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - ${CI_PROJECT_DIR}/${ZAP_REPORT}.html
+      - ${CI_PROJECT_DIR}/${ZAP_ALERT_REPORT}.md
+
+deploy-job:
+  stage: deploy
+  script:
+    - echo "Essa é a etapa de deploy"
