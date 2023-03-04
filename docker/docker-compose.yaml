@@ -1,0 +1,27 @@
+version: '3.7'
+
+networks:
+  my-network:
+  
+services:
+  zap:
+    image: owasp/zap2docker-stable
+    networks:
+      - my-network
+    container_name: zap
+    ports:
+      - "8080:8080"
+      - "8090:8090"
+    depends_on:
+      - juice-shop
+    command: >
+      sh -c "zap-webswing.sh"
+
+  juice-shop:
+    image: bkimminich/juice-shop
+    networks:
+      - my-network
+    container_name: juice-shop
+    ports:
+      - "3000:3000"
+
