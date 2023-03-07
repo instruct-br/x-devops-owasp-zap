@@ -64,17 +64,23 @@ Um **job** é um recurso que permitem o testador automatizar tarefas de teste de
 Um **spider** é um recurso que permite a ferramenta mapear automaticamente a aplicação web, identificando todas as páginas acessíveis a partir de uma página inicial e coletando informações sobre elas.
 
 ## Spider e Scanner Rules
-### Spider :  
+
+### Spider
+
 Serve para encontrar páginas. Ele identifica todos os hiperlinks na página e os adiciona à lista de URLs a serem visitadas e o processo continua recursivamente enquanto novos recursos são encontrados.
-### Scanner Rules: 
+
+### Scanner Rules
+
 São varreduras que podem coletar dados ou atacar páginas e são divididas em ativas e passivas. 
-#### Passiva : 
+
+#### Passiva
+
 verifica passivamente todas as mensagens HTTP (solicitações e respostas) enviadas para o aplicativo da Web que está sendo testado. A varredura passiva não altera as solicitações nem as respostas.
-#### Ativa : 
+
+#### Ativa
+
 A varredura ativa tenta encontrar vulnerabilidades potenciais usando ataques conhecidos contra os alvos selecionados. A varredura ativa é um ataque a esses alvos.
-
 Elas também não abrangem todos os tipos de vulnerabilidades, para uma cobertura mais abrangente é necessário realizar os testes manuais. 
-
 
 ## Prós e contras
 
